@@ -1,0 +1,35 @@
+openapi: 3.0.0
+
+info:
+  title: Books API
+  version: 1.0.0
+
+paths:
+  /books/{id}:
+    get:
+      summary: Get a book by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Book found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'   # points to the reusable definition below
+
+components:                    # top-level section for reusable pieces
+  schemas:                      # reusable data shapes live here
+    Book:                        # name of this reusable schema — can be referenced anywhere
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
