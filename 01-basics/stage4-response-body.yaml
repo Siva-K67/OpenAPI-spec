@@ -1,0 +1,30 @@
+openapi: 3.0.0  # which OpenAPI version this file follows
+
+info:
+  title: Books API
+  version: 1.0.0
+
+paths:
+  /books/{id}:
+    get:
+      summary: Get a book by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Book found
+          content:                      # describes the actual response body
+            application/json:            # the format of that body (JSON here)
+              schema:                     # the shape/structure of the JSON
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  author:
+                    type: string

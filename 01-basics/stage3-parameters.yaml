@@ -1,0 +1,23 @@
+openapi: 3.0.0
+info:
+  title: Books API
+  version: 1.0.0
+paths:
+  /books/{id}:
+    get:
+      summary: Get a book by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Book found
+
+# in: path
+# Tells OpenAPI where this parameter comes from. Options are:
+# path — part of the URL itself (our case: /books/42)
+# query — after a ? in the URL (e.g. /books?status=available)
+# header — sent as an HTTP header
